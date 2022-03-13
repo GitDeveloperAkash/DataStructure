@@ -31,6 +31,7 @@ class singleLinkedList
 
         void DeleteBack();
         void DeleteFront();
+        void Delete(int Pos);
         void display();
         int getSize();
 
@@ -41,6 +42,37 @@ class singleLinkedList
         NODE<T> *Head;
         NODE<T> *Tail;
 };
+
+
+template <class T>
+void singleLinkedList<T>::Delete(int Pos)
+{
+    if(Pos < 1 || Pos > SIZE)
+    {
+        cout << "Invalid Position " << endl;
+        return;
+    }
+
+    NODE<T> *current;
+    current = Head;
+
+    if(Pos == 1)
+    {
+        Head = Head->next;
+        return;
+    }
+    else
+    {
+        while(Pos > 2)
+        {
+            current = current->next;
+            Pos--;
+        }
+        current->next = current->next->next;
+        return;
+    }
+    SIZE--;
+}
 
 template <class T>
 void singleLinkedList<T>::DeleteFront()
