@@ -30,6 +30,7 @@ class singleLinkedList
         void Insert(int Pos, T val);
 
         void DeleteBack();
+        void DeleteFront();
         void display();
         int getSize();
 
@@ -42,11 +43,27 @@ class singleLinkedList
 };
 
 template <class T>
+void singleLinkedList<T>::DeleteFront()
+{
+    if(!Head)
+    {
+        cout << " No NODE is found to delete" << endl;
+        return;
+    }
+    if(Head == Tail)
+    {
+        Head = Tail = nullptr;
+        SIZE--;
+        return;
+    }
+
+    Head = Head->next;
+    SIZE--;
+}
+
+template <class T>
 void singleLinkedList<T>::DeleteBack()
 {
-
-
-
     if(!Head)
     {
         cout << " No NODE is found to delete" << endl;
@@ -72,8 +89,6 @@ void singleLinkedList<T>::DeleteBack()
         }
         current = current->next;
     }
-
-
 }
 
 template <class T>
