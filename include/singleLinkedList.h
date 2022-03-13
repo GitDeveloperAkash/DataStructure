@@ -32,6 +32,9 @@ class singleLinkedList
         void DeleteBack();
         void DeleteFront();
         void Delete(int Pos);
+
+        void Reverse();
+
         void display();
         int getSize();
 
@@ -43,6 +46,25 @@ class singleLinkedList
         NODE<T> *Tail;
 };
 
+
+template <class T>
+void singleLinkedList<T>::Reverse()
+{
+    NODE<T> *Next = nullptr;
+    NODE<T> *Current = nullptr;
+    NODE<T> *Prev = nullptr;
+
+    Current = Head;
+
+    while(Current)
+    {
+        Next = Current->next;
+        Current->next = Prev;
+        Prev = Current;
+        Current = Next;
+    }
+    Head = Prev;
+}
 
 template <class T>
 void singleLinkedList<T>::Delete(int Pos)
