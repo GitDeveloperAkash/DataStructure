@@ -28,6 +28,8 @@ class singleLinkedList
         void PushBack(T val);
         void PushFront(T val);
         void Insert(int Pos, T val);
+
+        void DeleteBack();
         void display();
         int getSize();
 
@@ -38,6 +40,41 @@ class singleLinkedList
         NODE<T> *Head;
         NODE<T> *Tail;
 };
+
+template <class T>
+void singleLinkedList<T>::DeleteBack()
+{
+
+
+
+    if(!Head)
+    {
+        cout << " No NODE is found to delete" << endl;
+        return;
+    }
+    if(Head == Tail)
+    {
+        Head = Tail = nullptr;
+        SIZE--;
+        return;
+    }
+
+    NODE<T> *current;
+    current = Head;
+    while(current->next)
+    {
+        if(current->next == Tail)
+        {
+            current->next = nullptr;
+            Tail = current;
+            SIZE--;
+            return;
+        }
+        current = current->next;
+    }
+
+
+}
 
 template <class T>
 int singleLinkedList<T>::getSize()
