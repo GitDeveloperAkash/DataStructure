@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1647173469 source:d:\professional\workspace\codeblocks\datastructure\main.cpp
+	<iostream>
+	<singleLinkedList.h>
+
+1647174480 d:\professional\workspace\codeblocks\datastructure\include\singlelinkedlist.h
+	<iostream>
+
